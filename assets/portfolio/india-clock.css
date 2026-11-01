@@ -1,26 +1,183 @@
 /* The selected India / live IST card. */
-.location-on-desk{position:absolute;left:39%;top:800px;width:330px;z-index:4}
-.desk-page .desk-stage{height:1280px}
-.clock-card{background:var(--card);color:var(--ink);border:1px solid var(--line);box-shadow:4px 7px 20px #00000012;padding:24px;transform:rotate(-1deg)}
-.clock-card .card-eyebrow{font:11px/1.6 var(--mono);letter-spacing:.4px;color:var(--muted);margin-bottom:15px}
-.clock-card h2{font:600 38px/1.08 var(--display);letter-spacing:-1px}
-.clock-card h2 em{font-family:var(--serif);font-weight:400}
-.clock-display{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:25px;padding-bottom:25px;border-bottom:1px solid var(--line)}
-.clock-display time{display:block;font:47px/1 var(--display);letter-spacing:-2px;font-variant-numeric:tabular-nums}
-.clock-display>div>span{font:10px/1.6 var(--mono);display:block;margin-top:12px;max-width:185px;letter-spacing:.3px}
-.analog-clock{width:75px;height:75px;flex-shrink:0}
-.clock-face{fill:var(--yellow);stroke:#292e24;stroke-width:1.5}
-.clock-ticks{stroke:#292e24;stroke-width:2;fill:none}
-.hour-hand,.minute-hand{stroke:#292e24;stroke-width:3;stroke-linecap:round}
-.minute-hand{stroke-width:2}.clock-center{fill:#292e24}
-.clock-location{display:flex;align-items:start;gap:12px;margin-top:25px}
-.pin-dot{height:10px;width:10px;flex-shrink:0;border:2px solid var(--ink);background:var(--yellow);border-radius:50%;margin-top:5px}
-.clock-location strong{display:block;font:600 19px var(--display);letter-spacing:-.4px}
-.clock-location p>span{display:block;font-size:12px;color:var(--muted);line-height:1.7;margin-top:6px}
-.clock-card .card-intent{font-size:14px;line-height:1.7;margin-top:18px}
-.clock-card .card-intent strong{font-weight:600;text-decoration:underline;text-decoration-color:var(--yellow);text-decoration-thickness:3px;text-underline-offset:4px}
-.clock-card .card-fineprint{font-size:12px;line-height:1.8;color:var(--muted);margin-top:10px}
-@media(max-width:1200px){.location-on-desk{left:38%;width:310px;top:850px}.desk-page .desk-stage{height:1350px}}
-@media(max-width:950px){.location-on-desk{left:50%;top:1080px;transform:translateX(-50%);width:340px}.desk-page .desk-stage{height:1590px}}
-@media(max-width:700px){.location-on-desk{position:static;left:auto;top:auto;transform:none;width:94%;margin:5px auto 20px}.desk-page .desk-stage{height:auto}.clock-card{margin-block:15px}.clock-display{gap:10px}.clock-display time{font-size:45px}.analog-clock{height:68px;width:68px}}
-@media(max-width:380px){.clock-display time{font-size:42px}.analog-clock{width:58px;height:58px}}
+.location-on-desk {
+  position: absolute;
+  left: 39%;
+  top: 800px;
+  width: 330px;
+  z-index: 4;
+}
+.desk-page .desk-stage {
+  height: 1280px;
+}
+.clock-card {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  box-shadow: 4px 7px 20px #00000012;
+  padding: 24px;
+  transform: rotate(-1deg);
+}
+.clock-card .card-eyebrow {
+  font: 11px/1.6 var(--mono);
+  letter-spacing: 0.4px;
+  color: var(--muted);
+  margin-bottom: 15px;
+}
+.clock-card h2 {
+  font: 600 38px/1.08 var(--display);
+  letter-spacing: -1px;
+}
+.clock-card h2 em {
+  font-family: var(--serif);
+  font-weight: 400;
+}
+.clock-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid var(--line);
+}
+.clock-display time {
+  display: block;
+  font: 47px/1 var(--display);
+  letter-spacing: -2px;
+  font-variant-numeric: tabular-nums;
+}
+.clock-display > div > span {
+  font: 10px/1.6 var(--mono);
+  display: block;
+  margin-top: 12px;
+  max-width: 185px;
+  letter-spacing: 0.3px;
+}
+.analog-clock {
+  width: 75px;
+  height: 75px;
+  flex-shrink: 0;
+}
+.clock-face {
+  fill: var(--yellow);
+  stroke: #292e24;
+  stroke-width: 1.5;
+}
+.clock-ticks {
+  stroke: #292e24;
+  stroke-width: 2;
+  fill: none;
+}
+.hour-hand,
+.minute-hand {
+  stroke: #292e24;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.minute-hand {
+  stroke-width: 2;
+}
+.clock-center {
+  fill: #292e24;
+}
+.clock-location {
+  display: flex;
+  align-items: start;
+  gap: 12px;
+  margin-top: 25px;
+}
+.pin-dot {
+  height: 10px;
+  width: 10px;
+  flex-shrink: 0;
+  border: 2px solid var(--ink);
+  background: var(--yellow);
+  border-radius: 50%;
+  margin-top: 5px;
+}
+.clock-location strong {
+  display: block;
+  font: 600 19px var(--display);
+  letter-spacing: -0.4px;
+}
+.clock-location p > span {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: 6px;
+}
+.clock-card .card-intent {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 18px;
+}
+.clock-card .card-intent strong {
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--yellow);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+.clock-card .card-fineprint {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-top: 10px;
+}
+@media (max-width: 1200px) {
+  .location-on-desk {
+    left: 38%;
+    width: 310px;
+    top: 850px;
+  }
+  .desk-page .desk-stage {
+    height: 1350px;
+  }
+}
+@media (max-width: 950px) {
+  .location-on-desk {
+    left: 50%;
+    top: 1080px;
+    transform: translateX(-50%);
+    width: 340px;
+  }
+  .desk-page .desk-stage {
+    height: 1590px;
+  }
+}
+@media (max-width: 700px) {
+  .location-on-desk {
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: 94%;
+    margin: 5px auto 20px;
+  }
+  .desk-page .desk-stage {
+    height: auto;
+  }
+  .clock-card {
+    margin-block: 15px;
+  }
+  .clock-display {
+    gap: 10px;
+  }
+  .clock-display time {
+    font-size: 45px;
+  }
+  .analog-clock {
+    height: 68px;
+    width: 68px;
+  }
+}
+@media (max-width: 380px) {
+  .clock-display time {
+    font-size: 42px;
+  }
+  .analog-clock {
+    width: 58px;
+    height: 58px;
+  }
+}
