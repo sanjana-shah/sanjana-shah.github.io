@@ -1,0 +1,212 @@
+.desk-other .desk-mini-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.mind-reader-card {
+  background: var(--surface);
+  overflow: hidden;
+}
+.mind-card-art {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin: 24px 0 8px;
+  color: var(--ink);
+}
+.mind-card-art > span {
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 55px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  font: 26px var(--serif);
+  box-shadow: 1px 3px 0 var(--line);
+  transform: rotate(-12deg) translateY(3px);
+}
+.mind-card-art > span:nth-child(2) {
+  transform: rotate(3deg) translateY(-6px);
+  color: #98543f;
+  z-index: 1;
+  font-style: italic;
+}
+.mind-card-art > span:nth-child(3) {
+  transform: rotate(15deg) translateY(3px);
+}
+.mind-reader-card h3 {
+  margin-top: 18px;
+}
+#project-dialog:has([data-mind-game]) {
+  width: min(650px, 100% - 32px);
+}
+#project-dialog:has([data-mind-game]) > [data-dialog-content] > h2 {
+  font-size: 26px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 20px;
+}
+#project-dialog:has([data-mind-game]) .eyebrow {
+  margin-bottom: 10px;
+}
+.mind-game {
+  padding-top: 24px;
+}
+.mind-game-meta {
+  font: 10px/1.6 var(--mono);
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+#project-dialog .mind-game h3 {
+  font: 36px/1.1 var(--display);
+  letter-spacing: -1px;
+  margin: 17px 0 18px;
+}
+#project-dialog .mind-game h3 em {
+  font-family: var(--serif);
+}
+.mind-game [data-game-focus]:focus {
+  outline: none;
+}
+#project-dialog .mind-game p {
+  font-size: 14px;
+  line-height: 1.75;
+  margin: 15px 0 20px;
+}
+.mind-number-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  margin: 24px 0;
+  background: var(--card);
+}
+.mind-number-grid > span {
+  display: grid;
+  place-items: center;
+  padding: 8px 4px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font: 19px/1.3 var(--display);
+  font-variant-numeric: tabular-nums;
+}
+.mind-actions {
+  display: flex;
+  gap: 12px;
+}
+.mind-game .mind-primary,
+.mind-game .mind-secondary {
+  padding: 13px 18px;
+  border: 1px solid var(--ink);
+  font-size: 14px;
+  text-align: center;
+}
+.mind-game .mind-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+.mind-game .mind-secondary {
+  background: transparent;
+}
+.mind-actions > button {
+  flex: 1;
+}
+.mind-game button:hover {
+  filter: brightness(0.9);
+}
+.mind-game kbd {
+  font: 10px var(--mono);
+  opacity: 0.6;
+  margin-left: 8px;
+}
+.mind-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+}
+.mind-game .mind-text-button {
+  background: transparent;
+  padding: 5px 0;
+  font-size: 12px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+#project-dialog .mind-game .mind-fineprint {
+  font-size: 12px;
+  color: var(--muted);
+}
+.mind-reveal {
+  font: italic 130px/1.2 var(--serif);
+  color: var(--ink);
+  text-align: center;
+  padding: 25px 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  margin: 24px 0;
+  animation: mind-reveal 0.45s ease-out both;
+}
+.mind-how {
+  border-top: 1px solid var(--line);
+  margin-top: 28px;
+  padding-top: 18px;
+  font-size: 13px;
+}
+.mind-how summary {
+  cursor: pointer;
+}
+#project-dialog .mind-how p {
+  font-size: 12px;
+}
+@keyframes mind-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@media (max-width: 1100px) {
+  .desk-other .desk-mini-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 700px) {
+  .desk-other .desk-mini-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .mind-card-art {
+    justify-content: start;
+    margin-left: 6px;
+  }
+  .mind-game kbd {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  #project-dialog:has([data-mind-game]) {
+    padding: 28px 22px;
+  }
+  #project-dialog .mind-game h3 {
+    font-size: 30px;
+  }
+  .mind-game .mind-primary,
+  .mind-game .mind-secondary {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+  .mind-number-grid > span {
+    font-size: 18px;
+    padding: 8px 2px;
+  }
+  .mind-reveal {
+    font-size: 100px;
+  }
+  #project-dialog:has([data-mind-game]) .close-dialog {
+    margin: -12px -8px 15px 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mind-reveal {
+    animation: none;
+  }
+}

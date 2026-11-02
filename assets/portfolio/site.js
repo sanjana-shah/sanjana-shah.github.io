@@ -26,6 +26,8 @@ document.querySelectorAll("[data-project]").forEach((button) =>
         animationSlot.querySelector("[data-cancer-animation]"),
       );
     }
+    const mindGame = content.querySelector("[data-mind-game]");
+    if (mindGame) disposeProject = window.initMindReader(mindGame);
     dialog.scrollTop = 0;
     document.body.style.overflow = "hidden";
   }),
