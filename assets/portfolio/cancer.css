@@ -1,0 +1,555 @@
+.cancer-project {
+  margin-bottom: 22px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  box-shadow: 2px 4px 0 color-mix(in srgb, var(--line) 50%, transparent);
+  overflow: hidden;
+}
+.cancer-project .stage {
+  height: 470px;
+  background: #101e1c;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.cancer-project canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: grab;
+  touch-action: pan-y;
+}
+.cancer-project .stage:active canvas {
+  cursor: grabbing;
+}
+.cancer-project .overlay {
+  position: absolute;
+  pointer-events: none;
+  inset: 28px;
+  color: #a9bdb1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cancer-project .mono {
+  font: 10px/1.5 var(--mono);
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+.cancer-project .stage-title {
+  font: italic 29px/1.15 var(--serif);
+  color: #e1ecda;
+  margin-top: 8px;
+}
+.cancer-project .stage-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+}
+.cancer-project .legend {
+  display: flex;
+  gap: 16px;
+  font: 10px var(--mono);
+  letter-spacing: 0.3px;
+}
+.cancer-project .dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #bbd8c5;
+  margin-right: 6px;
+}
+.cancer-project .dot.green {
+  background: #a3d875;
+}
+.cancer-project .dot.red {
+  background: #ef997a;
+}
+.cancer-project .right {
+  text-align: right;
+}
+.cancer-project .index {
+  font: 38px/1.1 var(--display);
+  color: #e3eddc;
+}
+.cancer-project .controls {
+  position: absolute;
+  z-index: 1;
+  top: 26px;
+  right: 26px;
+  display: flex;
+  gap: 7px;
+}
+.cancer-project .controls button {
+  border: 1px solid #617267;
+  background: #182c25;
+  color: #e1ebdc;
+  font: 11px var(--body);
+  padding: 9px 15px;
+  border-radius: 22px;
+}
+.cancer-project .controls button[aria-pressed="true"] {
+  background: #d4e7c7;
+  color: #1f3329;
+}
+.cancer-project .controls button:hover {
+  border-color: #d4e7c7;
+}
+.cancer-project .hint {
+  margin-top: 12px;
+  font: 9px var(--mono);
+  color: #a1b09a;
+  letter-spacing: 0.5px;
+}
+.cancer-project .motion-line {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background: #b1d496;
+  width: 100%;
+  transform-origin: left;
+  opacity: 0.5;
+}
+.cancer-project .stage:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 95px #06110d55;
+}
+@media (max-width: 650px) {
+  .cancer-project .stage {
+    height: 420px;
+  }
+  .cancer-project .overlay {
+    inset: 20px;
+  }
+  .cancer-project .stage-title {
+    font-size: 23px;
+  }
+  .cancer-project .controls {
+    top: 83px;
+    right: auto;
+    left: 20px;
+  }
+  .cancer-project .legend {
+    flex-direction: column;
+    gap: 7px;
+  }
+  .cancer-project .index {
+    font-size: 28px;
+  }
+  .cancer-project .mono {
+    font-size: 9px;
+  }
+  .cancer-project .hint {
+    font-size: 8px;
+    max-width: 190px;
+    line-height: 1.7;
+  }
+}
+/* A single notebook drawing, with a small paper title overlapping the edge. */
+@font-face {
+  font-family: "Caveat";
+  src: url("caveat.ttf") format("truetype");
+  font-weight: 400 700;
+  font-display: swap;
+}
+.cancer-sketch-card {
+  display: block;
+  position: relative;
+  width: min(100%, 660px);
+  margin: 0 0 42px;
+  padding: 12px 0;
+  text-align: left;
+  color: #4d5645;
+  background-color: #f1eee2;
+  background-image:
+    linear-gradient(#4d56450c 1px, transparent 1px),
+    linear-gradient(90deg, #4d56450c 1px, transparent 1px);
+  background-size: 26px 26px;
+  border: 1px solid var(--line);
+  box-shadow: 2px 4px 0 color-mix(in srgb, var(--line) 50%, transparent);
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+.cancer-sketch-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 3px 8px 0 color-mix(in srgb, var(--line) 60%, transparent);
+}
+.cancer-sketch {
+  display: block;
+  width: 100%;
+  height: clamp(270px, 34vw, 400px);
+  object-fit: contain;
+}
+.sketch-title-tab {
+  position: absolute;
+  bottom: -17px;
+  left: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 9px 19px 8px;
+  background: #fffdf2;
+  border: 1px solid #d9d5c3;
+  box-shadow: 1px 3px 5px #282c2410;
+  transform: rotate(-3deg);
+}
+.sketch-tab-kicker {
+  font:
+    14px/1.2 "Caveat",
+    cursive;
+  color: #777767;
+}
+.sketch-tab-title {
+  font:
+    600 29px/1.1 "Caveat",
+    cursive;
+  letter-spacing: -0.5px;
+}
+.sketch-tab-title span {
+  margin-left: 12px;
+  font-size: 21px;
+}
+.desk-other .desk-mini-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+#project-dialog:has([data-cancer-animation]) {
+  width: min(950px, 100% - 32px);
+}
+#project-dialog .cancer-project {
+  margin: 26px 0 0;
+  box-shadow: none;
+  border: 0;
+}
+#project-dialog .cancer-illustration-note {
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+@media (max-width: 650px) {
+  .sketch-title-tab {
+    left: 18px;
+    bottom: -15px;
+    padding: 8px 16px;
+  }
+  .sketch-tab-title {
+    font-size: 26px;
+  }
+  .desk-other .desk-mini-grid {
+    grid-template-columns: 1fr;
+  }
+  #project-dialog:has([data-cancer-animation]) {
+    padding: 24px 18px;
+  }
+  #project-dialog .cancer-project .stage {
+    height: 390px;
+  }
+  #project-dialog .cancer-project .overlay {
+    inset: 16px;
+  }
+  #project-dialog .cancer-project .stage-title {
+    font-size: 21px;
+  }
+  #project-dialog .close-dialog {
+    margin: -10px -4px 16px 12px;
+    z-index: 2;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cancer-sketch-card {
+    transition: none;
+  }
+  .cancer-sketch-card:hover {
+    transform: none;
+  }
+}
+/* Show the interactive specimen immediately beside the project introduction. */
+#project-dialog:has(.cancer-dialog-hero) {
+  width: min(1140px, 100% - 32px);
+}
+.cancer-dialog-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  grid-template-areas: "intro animation" "details animation";
+  grid-template-rows: auto 1fr;
+  gap: 28px 36px;
+  align-items: start;
+  clear: both;
+}
+.cancer-dialog-hero > * {
+  min-width: 0;
+}
+.cancer-dialog-intro {
+  grid-area: intro;
+}
+.cancer-dialog-details {
+  grid-area: details;
+}
+.cancer-dialog-hero [data-cancer-animation-slot] {
+  grid-area: animation;
+  position: sticky;
+  top: 12px;
+}
+#project-dialog .cancer-dialog-details h3 {
+  margin-top: 0;
+  font-size: 19px;
+}
+#project-dialog .cancer-dialog-details p {
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 13px;
+}
+.cancer-dialog-details section + section {
+  margin-top: 28px;
+  padding-top: 25px;
+  border-top: 1px solid var(--line);
+}
+#project-dialog .cancer-dialog-hero .cancer-project {
+  margin-top: 0;
+}
+#project-dialog .cancer-dialog-hero .stage {
+  height: 410px;
+}
+#project-dialog .cancer-dialog-hero .stage-title {
+  font-size: 23px;
+}
+#project-dialog .cancer-dialog-hero .controls {
+  top: 83px;
+  left: 20px;
+  right: auto;
+}
+#project-dialog .cancer-dialog-hero .overlay {
+  inset: 20px;
+}
+#project-dialog .cancer-dialog-hero .legend {
+  flex-direction: column;
+  gap: 7px;
+}
+#project-dialog .cancer-dialog-hero .hint {
+  max-width: 210px;
+  line-height: 1.6;
+}
+@media (max-width: 800px) {
+  .cancer-dialog-hero {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "intro" "animation" "details";
+    grid-template-rows: auto;
+    gap: 22px;
+  }
+  .cancer-dialog-hero [data-cancer-animation-slot] {
+    position: static;
+  }
+  #project-dialog .cancer-dialog-hero h2 {
+    font-size: 34px;
+  }
+  #project-dialog .cancer-dialog-hero .stage {
+    height: 390px;
+  }
+}
+
+/* A small research Post-it between the projects on the main desk. */
+.desk-stage .cancer-postit {
+  position: absolute;
+  top: 470px;
+  left: 39%;
+  width: 300px;
+  margin: 0;
+  padding: 45px 8px 12px;
+  background-color: #f5e6a8;
+  background-image: linear-gradient(
+    180deg,
+    #d8ba5540 0,
+    #d8ba551a 30px,
+    transparent 65px
+  );
+  border: 0;
+  box-shadow: 2px 9px 13px #42371c20;
+  transform: rotate(-4deg);
+  z-index: 2;
+}
+.cancer-postit::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 26px;
+  background: #c6ad5012;
+  border-bottom: 1px solid #bd9e3415;
+}
+.cancer-postit::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 19px;
+  height: 19px;
+  background: linear-gradient(135deg, #bca25233 50%, #fff4cc 51%);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+.cancer-postit .cancer-sketch {
+  height: 205px;
+}
+.cancer-postit .sketch-title-tab {
+  top: 18px;
+  left: 16px;
+  bottom: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  transform: rotate(-2deg);
+}
+.cancer-postit .sketch-tab-kicker {
+  font-size: 12px;
+  color: #746744;
+}
+.cancer-postit .sketch-tab-title {
+  font-size: 26px;
+}
+.desk-stage .cancer-postit:hover {
+  transform: rotate(-2deg) translateY(-4px);
+  box-shadow: 3px 13px 17px #42371c25;
+}
+@media (min-width: 951px) and (max-width: 1200px) {
+  .desk-stage .cancer-postit {
+    top: 475px;
+    width: 270px;
+  }
+  .cancer-postit .cancer-sketch {
+    height: 190px;
+  }
+}
+@media (min-width: 701px) and (max-width: 950px) {
+  .desk-stage .cancer-postit {
+    top: 420px;
+    left: 42%;
+    width: 240px;
+    padding-top: 43px;
+  }
+  .cancer-postit .cancer-sketch {
+    height: 180px;
+  }
+}
+@media (max-width: 700px) {
+  .desk-stage .cancer-postit {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: min(90%, 340px);
+    margin: 10px auto 20px;
+    transform: rotate(-3deg);
+  }
+  .cancer-postit .cancer-sketch {
+    height: 220px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .desk-stage .cancer-postit:hover {
+    transform: rotate(-4deg);
+  }
+}
+.cancer-modes {
+  display: flex;
+  gap: 7px;
+  padding: 0 0 12px;
+  background: var(--paper);
+}
+.cancer-modes button,
+.timeline-header button {
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: transparent;
+  font-size: 12px;
+}
+.cancer-modes button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.cancer-timeline {
+  padding: 18px;
+  background: var(--surface);
+}
+.cancer-timeline[hidden],
+.cancer-project button[hidden] {
+  display: none;
+}
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  font-size: 12px;
+}
+.timeline-header button {
+  font-size: 11px;
+  padding: 4px 10px;
+}
+.timeline-slider {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 15px;
+  font: 10px var(--mono);
+  color: var(--muted);
+}
+.timeline-slider input {
+  width: 100%;
+  accent-color: #7b9b55;
+  cursor: pointer;
+  margin: 4px 0;
+}
+.timeline-populations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  font-size: 11px;
+  margin-top: 12px;
+}
+.timeline-populations span:last-child {
+  font-size: 10px;
+  color: var(--muted);
+}
+#project-dialog .timeline-explanation {
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 12px;
+}
+.cancer-project .dot.blue {
+  background: #87b9fa;
+}
+.population-chart {
+  margin-top: 18px;
+  color: var(--muted);
+}
+.population-chart-heading {
+  display: flex;
+  justify-content: space-between;
+  font: 10px var(--mono);
+}
+.population-chart-heading i {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #bf895b55;
+}
+.population-chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 145px;
+  font-family: var(--mono);
+}
+.population-chart-axis {
+  display: block;
+  text-align: right;
+  font: 9px var(--mono);
+}

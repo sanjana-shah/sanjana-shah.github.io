@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta
       name="description"
-      content="Sanjana Shah — your friendly neighbourhood dev. Backend and infrastructure engineer, previously Meta and Amazon. Now back in India and seeking backend and infrastructure engineering roles in India. Public projects, research, and experiments."
+      content="Sanjana Shah -- your friendly neighbourhood dev. Backend and infrastructure engineer, previously Meta and Amazon. Now back in India and seeking backend and infrastructure engineering roles in India. Public projects, research, and experiments."
     />
-    <title>Sanjana Shah — Software engineer</title>
+    <title>Sanjana Shah | Dev Desk</title>
     <link rel="stylesheet" href="assets/portfolio/fonts.css" />
     <link rel="stylesheet" href="assets/portfolio/site.css" />
     <script src="assets/portfolio/theme.js"></script>
     <script src="assets/portfolio/projects.js" defer></script>
+    <link rel="stylesheet" href="assets/portfolio/cancer.css" />
+    <script src="assets/portfolio/cancer-timelapse.js" defer></script>
+    <script src="assets/portfolio/cancer.js" defer></script>
     <script src="assets/portfolio/site.js" defer></script>
     <link
       rel="icon"
@@ -53,13 +56,13 @@
       <section class="desk-stage contain" aria-labelledby="desk-title">
         <div class="desk-caption">
           <span>ON MY DESK, LATELY</span
-          ><span>a few things I’m working on.</span>
+          ><span>a few things I'm working on.</span>
         </div>
         <article class="paper intro-paper">
-          <span class="paper-kicker">A NOTE FROM</span>
-          <h1 id="desk-title">hello, I’m<br /><em>Sanjana.</em></h1>
+
+          <h1 id="desk-title">hello, I'm<br /><em>Sanjana.</em></h1>
           <p>
-            Your friendly neighbourhood dev.<br />Previously Meta. Three summers
+            Your friendly neighbourhood dev.<br />Previously at Meta. Three summers
             at Amazon.
           </p>
           <p>
@@ -84,35 +87,12 @@
           ><strong>The<br /><em>Hobbit</em></strong>
           <p>currently reading.<br />please, no spoilers.</p>
         </aside>
-        <section class="paper now-paper">
-          <h2>presently</h2>
-          <dl class="now-list">
-            <div>
-              <dt>making</dt>
-              <dd>this little corner of the web</dd>
-            </div>
-            <div>
-              <dt>learning</dt>
-              <dd>cooking</dd>
-            </div>
-            <div>
-              <dt>reading</dt>
-              <dd>The Hobbit</dd>
-            </div>
-            <div>
-              <dt>seeking</dt>
-              <dd>a backend / infra role in India</dd>
-            </div>
-          </dl>
-          <span class="tape" aria-hidden="true"></span>
-        </section>
         <button class="desk-project terminal-paper" data-project="mausam">
           <span class="terminal-top">● ● ● <span>mausam.app</span></span
           ><strong>&gt; mausam<span class="cursor">_</span></strong>
           <p>the terrible weather app.</p>
           <span class="terminal-output"
-            >location permission: never<br />forecast: with personality<br />status:
-            tinkering</span
+            >location permission: never<br />forecast: with personality</span
           ><span class="desk-open">explore Mausam ↗</span></button
         ><button class="desk-project browser-paper" data-project="hospital">
           <span class="browser-top"
@@ -124,22 +104,29 @@
             alt="Sanjana Eye Hospital website preview"
             loading="lazy"
           /><span class="browser-caption"
-            >a home on the web. <span>LIVE ↗</span></span
+            > a website for my mom's eye clinic <span>LIVE ↗</span></span
           >
+        </button>
+        <button
+          class="cancer-sketch-card cancer-postit"
+          type="button"
+          data-project="cancer"
+          aria-label="CancerSim thesis — open the animation and project details"
+        >
+          <img class="cancer-sketch" src="assets/portfolio/cancer-sketch.svg" alt="Pencil sketch of packed cells and branching vessels, annotated with questions about space, nutrients, and drug schedules" width="470" height="300" loading="lazy" />
+          <span class="sketch-title-tab"><span class="sketch-tab-kicker">M.S. thesis / 2023</span><span class="sketch-tab-title">CancerSim <span aria-hidden="true">↗</span></span></span>
         </button>
         <div class="location-on-desk">
           <article
             class="location-card clock-card"
             aria-labelledby="india-location-title"
           >
-            <p class="card-eyebrow">
-              A DIFFERENT TIMEZONE. THE SAME CURIOSITY.
-            </p>
+
             <h2 id="india-location-title">Back on <em>IST.</em></h2>
             <div class="clock-display">
               <div>
                 <time data-ist-time>--:--</time
-                ><span>INDIAN STANDARD TIME · UTC +05:30</span>
+                ><span>INDIAN STANDARD TIME <br /> UTC +05:30</span>
               </div>
               <svg
                 class="analog-clock"
@@ -178,11 +165,10 @@
               </p>
             </div>
             <p class="card-intent">
-              Looking for a backend or infrastructure role
-              <strong>in India.</strong>
+              Looking for a <strong>backend or infra role</strong>
             </p>
             <p class="card-fineprint">
-              Available immediately · Open to relocating within India
+             Open to relocating within India
             </p>
           </article>
         </div>
@@ -233,15 +219,10 @@
       <section class="desk-other contain" id="projects">
         <div class="section-line">
           <h2>Other things lying around</h2>
-          <span>research, visualization, and a small arcade game ↘</span>
+          <span>visualization and a small arcade game ↘</span>
         </div>
         <div class="desk-mini-grid">
-          <button class="mini-project" data-project="cancer">
-            <span class="label">C++ · Python · R</span>
-            <h3>CancerSim</h3>
-            <p>A three-dimensional agent-based cancer simulator.</p>
-            <span class="mini-arrow" aria-hidden="true">↗</span></button
-          ><button class="mini-project" data-project="devs">
+          <button class="mini-project" data-project="devs">
             <span class="label">Java · Spring Boot · D3.js</span>
             <h3>DEVS-Suite Log Visualizer</h3>
             <p>Making timestamped simulation logs easier to explore.</p>
@@ -301,8 +282,11 @@
               <p>Software Development Engineering Intern · Seattle</p>
               <p>
                 Event-driven monitoring and automated ticket routing on AWS.
-                Five minutes saved per ticket per developer.
+
               </p>
+               <div class="result-tags">
+                <span>Five minutes saved per ticket per developer.</span
+              </div>
             </article>
           </div>
         </section>
@@ -330,7 +314,7 @@
               engineering.
             </p>
             <p>
-              I’ve moved back to Ahmedabad, India, after studying at ASU and
+              I've moved back to Ahmedabad, India, after studying at ASU and
               working in New York. Trying to rediscover my love and curiosity
               around building things — through the useful, the playful, and the
               slightly ridiculous.
@@ -352,10 +336,6 @@
         <a href="mailto:sanjanashah20211@gmail.com"
           >sanjanashah20211@gmail.com ↗</a
         >
-        <p>
-          Ahmedabad, India · Seeking roles in India<br />Available immediately ·
-          Open to relocation within India
-        </p>
       </div>
       <div class="footer-links">
         <a href="https://github.com/sanjana-shah" target="_blank" rel="noopener"
@@ -372,6 +352,52 @@
       </div>
       <span class="footer-small">© <span data-year></span> Sanjana Shah.</span>
     </footer>
+    <template id="cancer-animation-template"
+      ><div class="cancer-project" data-cancer-animation>
+        <div class="cancer-modes" role="group" aria-label="Animation mode"><button type="button" data-mode="structure" aria-pressed="true">3D structure</button><button type="button" data-mode="timelapse" aria-pressed="false">Cell time-lapse</button></div>
+        <div class="stage">
+          <canvas
+            aria-label="Interactive artistic 3D view of spherical cells in a face-centered cubic lattice surrounding branching blood vessels. This is an illustration inspired by the thesis model. Drag to rotate; use Cutaway to reveal the interior."
+            role="img"
+          ></canvas>
+          <div class="overlay">
+            <div>
+              <div class="mono">CancerSim / Spatial ecology</div>
+              <div class="stage-title">Living architecture.</div>
+            </div>
+            <div class="stage-foot">
+              <div>
+                <div class="legend">
+                  <span><i class="dot"></i>Tissue</span
+                  ><span><i class="dot green"></i>Cancer cells</span
+                  ><span><i class="dot red"></i>Vasculature</span>
+                </div>
+                <div class="hint">DRAG TO EXPLORE · SCROLL TO ZOOM</div>
+              </div>
+              <div class="right">
+                <div class="index" data-phase>01</div>
+                <div class="mono" data-caption>Whole tissue</div>
+              </div>
+            </div>
+          </div>
+          <div class="controls">
+            <button type="button" data-cut aria-pressed="false">Cutaway</button
+            ><button type="button" data-pause aria-pressed="false">Pause</button>
+          </div>
+          <div class="motion-line"></div>
+        </div>
+        <div class="cancer-timeline" hidden>
+          <div class="timeline-header"><span data-treatment>1 / Drug off · growth</span><button type="button" data-restart>Restart ↺</button></div>
+          <label class="timeline-slider">Illustrative step <output data-step>0 / 71</output><input type="range" min="0" max="71" value="0" step="1" data-scrubber aria-label="Illustrative time step" /></label>
+          <div class="timeline-populations"><span>Sensitive <strong data-sensitive></strong></span><span>Resistant <strong data-resistant></strong></span><span data-events></span></div>
+          <div class="population-chart"><div class="population-chart-heading"><span>Tumor-cell count</span><span><i></i> Drug on</span></div><svg viewBox="0 0 400 104" role="img" data-population-chart aria-label="Tumor-cell count over illustrative time"></svg><span class="population-chart-axis">Illustrative time →</span></div>
+          <p class="timeline-explanation" data-explanation></p>
+        </div>
+      </div>
+      <p class="cancer-illustration-note">
+        Illustrative model, not CancerSim output. Time-lapse parameters and steps are uncalibrated; vessels are held fixed. Drag to explore the structure.
+      </p></template
+    >
     <dialog aria-labelledby="project-dialog-title" id="project-dialog">
       <button class="close-dialog" aria-label="Close project">Close ×</button>
       <div data-dialog-content></div>
