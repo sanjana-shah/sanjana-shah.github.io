@@ -1,0 +1,58 @@
+/* A small lift and pointer tilt, like picking up a paper from the desk. */
+.desk-page .desk-stage .terminal-paper {
+  --paper-angle: 2deg;
+}
+.desk-page .desk-stage .browser-paper {
+  --paper-angle: -3deg;
+}
+.desk-page .desk-stage .desk-project {
+  --paper-lift: 0px;
+  transform: perspective(900px) translateY(var(--paper-lift))
+    rotate(var(--paper-angle)) rotateX(var(--paper-rx, 0deg))
+    rotateY(var(--paper-ry, 0deg));
+  transition:
+    transform 0.22s ease-out,
+    box-shadow 0.22s ease-out;
+}
+@media (hover: hover) and (pointer: fine) {
+  .desk-page .desk-stage .desk-project:hover {
+    --paper-lift: -7px;
+    box-shadow: 8px 17px 26px #00000020;
+    z-index: 5;
+  }
+  .desk-page .terminal-paper:hover .cursor {
+    animation: desk-cursor 1s steps(2, start) infinite;
+  }
+  .desk-page .browser-paper img {
+    transition: transform 0.45s ease;
+  }
+  .desk-page .browser-paper:hover img {
+    transform: scale(1.025) translateY(-2px);
+  }
+}
+.desk-page .desk-stage .desk-project:focus-visible {
+  --paper-lift: -5px;
+}
+.desk-page .desk-stage .desk-project:active {
+  --paper-lift: -2px;
+}
+@keyframes desk-cursor {
+  50% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .desk-page .desk-stage .desk-project {
+    transform: rotate(var(--paper-angle));
+    transition: none;
+  }
+  .desk-page .browser-paper img {
+    transition: none;
+  }
+  .desk-page .browser-paper:hover img {
+    transform: none;
+  }
+  .desk-page .terminal-paper:hover .cursor {
+    animation: none;
+  }
+}
