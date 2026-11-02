@@ -1,7 +1,7 @@
 (() => {
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
   const tiles = document.querySelectorAll(
-    ".desk-stage .terminal-paper, .desk-stage .browser-paper",
+    ".desk-stage .terminal-paper, .desk-stage .browser-paper, .board-terminal, .board-clinic",
   );
   const resets = [];
   tiles.forEach((tile) => {
