@@ -19,6 +19,8 @@
     />
     <link rel="stylesheet" href="assets/portfolio/india-clock.css" />
     <script src="assets/portfolio/india-clock.js" defer></script>
+    <link rel="stylesheet" href="assets/portfolio/music.css" />
+    <script src="assets/portfolio/music.js" defer></script>
     <link rel="canonical" href="https://sanjana-shah.github.io/" />
     <meta name="theme-color" content="#f6c500" />
   </head>
@@ -184,6 +186,49 @@
             </p>
           </article>
         </div>
+        <article class="music-on-desk music-card" aria-labelledby="music-title">
+          <p class="music-eyebrow">A LITTLE BACKGROUND MUSIC</p>
+          <h2 id="music-title">Listening <em>lately.</em></h2>
+          <div
+            class="music-record"
+            data-music-state="loading"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            <div class="music-artwork" aria-hidden="true">
+              <span class="record-placeholder"></span>
+              <img
+                data-track-image
+                alt=""
+                width="88"
+                height="88"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                hidden
+              />
+            </div>
+            <div class="music-copy">
+              <p class="music-status" data-track-status>Tuning in…</p>
+              <h3 class="music-track" data-track-name hidden></h3>
+              <p class="music-artist" data-track-artist hidden></p>
+              <p class="music-album" data-track-album hidden></p>
+            </div>
+          </div>
+          <a
+            class="music-link"
+            data-track-link
+            target="_blank"
+            rel="noopener noreferrer"
+            hidden
+            >Open track <span aria-hidden="true">↗</span></a
+          >
+          <noscript
+            ><p class="music-fallback">
+              Enable JavaScript to see the latest listen.
+            </p></noscript
+          >
+        </article>
       </section>
       <section class="desk-other contain" id="projects">
         <div class="section-line">
